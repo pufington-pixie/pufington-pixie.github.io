@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Typewriter effect written in javascript. Easy to use, very fast, very small." name="description"/>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../img/favicon.png" />
+    <title>TypeWriter Effect Script - Ernest Marcinko Official</title>
+
+    <script src="typewriter.js?v=1.0.2"></script>
+</head>
+<body>
+    <main class="w960" role="main">
+        <section class="intro">
+            <h1 id="tw1">Okay</h1>
+            <p id="tw2"></p>
+            <p id="tw3"></p>
+            <p>Check out the <a href='https://github.com/anag0/typewriter'>Github repository</a> for more details.</p>
+            <p><a href='../'><< Back Home</a></p>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container w960 flexy">
+            <div class="row">
+                <h2>Who am I?</h2>
+                <p>Just an ordinary developer.</p>
+                <p>Most of the time I work on my products, sometimes I create educational style YouTube videos for fun.</p>
+            </div>
+            <div class="row">
+                <h2>My socials</h2>
+                <ul>
+                    <li><a target="_blank" href="https://www.youtube.com/@ernestmarcinko/" title="Youtube" aria-label="Youtube">YouTube</a></li>
+                    <li><a target="_blank" href="https://twitter.com/ernest_marcinko" title="Twitter" aria-label="Twitter">Twitter</a></li>
+                    <li><a target="_blank" href="https://github.com/anag0" title="Github" aria-label="Github">Github</a></li>
+                    <li><a target="_blank" href="https://instagram.com/ernestmarcinko" title="Instagram" aria-label="Instagram">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="../site.js" async></script>
+    <script>
+        const node1 = document.querySelector('#tw1');
+        const node2 = document.querySelector('#tw2');
+        const node3 = document.querySelector('#tw3');
+
+        const typeWriter1 = new TypeWriter(node1, {
+            autoStart: false,
+            keepBlinking: false,
+            onFinish: (node, params)=>{
+                typeWriter2.start()
+            },
+        });
+        const typeWriter2 = new TypeWriter(node2, {
+            autoStart: false,
+            keepBlinking: false,
+            pauseMin: 50,
+            pauseMax: 60,
+            onFinish: ()=>{
+                typeWriter3.start()
+            }
+        });
+        const typeWriter3 = new TypeWriter(node3, {
+            autoStart: false,
+            keepBlinking: true,
+            cursor: "\u25ae",
+            pauseMin: 200,
+            pauseMax: 300
+        });
+
+        typeWriter1.write(" - so this is a typewriter script").start();
+        typeWriter2.write("It can write very fast, and also..");
+        typeWriter3.write("..slowly.");
+    </script>
+</body>
+</html>
